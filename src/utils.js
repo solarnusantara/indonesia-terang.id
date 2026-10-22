@@ -43,3 +43,26 @@ export const focusStats = [
   ["3", "komunitas pembelajaran energi"],
   ["5", "jalur layanan riset, studi, edukasi, komunitas, program"],
 ];
+
+export const testimonials = [
+  {
+    name: "Ahmad Fahmi Rofiqi",
+    role: "Operation & Maintenance Superintendent - Area Operation Dumai",
+    company: "PT Pertamina Power Indonesia",
+    quote:
+      "Bagi saya Platform indonesia-terang.id memberikan kemudahan dalam menjalin kolaborasi wawasan teknis Energi Terbarukan khususnya teknologi solar power plant. Sangat membantu dalam problem solving, kemudahan sourcing material, dan peningkatan keandalan pembangkit.",
+    badge: "Praktisi Industri & Pembangkit",
+    initials: "AF",
+    avatarBg: "linear-gradient(135deg, #084b30, #08713f)",
+  },
+  {
+    name: "Mochammad Farros Fatchur Roji",
+    role: "System Architect",
+    company: "Solar Nusantara",
+    quote:
+      "Indonesia Terang merupakan wadah komunitas yang bisa mendukung kemajuan Energi Bersih di Indonesia, baik untuk kebutuhan rumahan hingga kebutuhan Industri. Saya berharap energi bersih bisa banyak diterapkan ke lingkungan sekitar.",
+    badge: "System Architect & Inisiator",
+    initials: "MF",
+    avatarBg: "linear-gradient(135deg, #08713f, #1e3a8a)",
+  },
+];

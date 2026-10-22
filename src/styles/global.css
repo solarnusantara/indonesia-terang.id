@@ -186,6 +186,17 @@ img {
   background: var(--soft);
 }
 
+.dropdown-divider {
+  margin: 6px 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+.dropdown-menu a.dropdown-highlight {
+  color: var(--green);
+  font-weight: 600;
+}
+
 .site-nav a:hover,
 .nav-parent:hover,
 .text-link:hover {

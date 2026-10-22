@@ -1,0 +1,98 @@
+---
+import { MessageSquareQuote, Quote, ArrowRight, Building2, CheckCircle2 } from "@lucide/astro";
+import { Button } from "@/components/ui/button";
+import { testimonials } from "../utils.js";
+
+const { showHeading = true, className = "" } = Astro.props;
+---
+
+<section id="tentang-mereka" class:list={["content-band content-band--soft scroll-mt-24", className]}>
+  {showHeading && (
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow flex items-center gap-2">
+          <MessageSquareQuote size={16} />
+          <span>Tentang Mereka</span>
+        </p>
+        <h2>Suara Praktisi & Penggerak Energi.</h2>
+      </div>
+      <p>
+        Pengalaman langsung dan harapan nyata dalam menjalin kolaborasi wawasan teknis, pemecahan masalah, hingga percepatan transisi energi di Indonesia.
+      </p>
+    </div>
+  )}
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 my-8">
+    {testimonials.map((item, idx) => (
+      <div class="bg-white border border-line rounded-2xl p-6 md:p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+        <!-- Accent top border -->
+        <div 
+          class="absolute top-0 left-0 right-0 h-1.5 transition-all"
+          style={`background: ${idx === 0 ? 'var(--green)' : 'var(--sun)'};`}
+        />
+
+        <div>
+          <!-- Header Card: Badge & Quote Icon -->
+          <div class="flex items-center justify-between gap-4 mb-5">
+            <span class:list={[
+              "inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full",
+              idx === 0 
+                ? "bg-emerald-50 text-emerald-800 border border-emerald-200/70"
+                : "bg-amber-50 text-amber-900 border border-amber-200/70"
+            ]}>
+              <CheckCircle2 size={13} class={idx === 0 ? "text-emerald-600" : "text-amber-600"} />
+              <span>{item.badge}</span>
+            </span>
+
+            <Quote size={28} class="text-green/20 group-hover:text-green/40 transition-colors flex-shrink-0" />
+          </div>
+
+          <!-- Quote content -->
+          <blockquote class="m-0 text-ink/90 text-base md:text-lg leading-relaxed font-normal italic">
+            "{item.quote}"
+          </blockquote>
+        </div>
+
+        <!-- Author Footer -->
+        <div class="mt-6 pt-5 border-t border-line/70 flex items-center gap-4">
+          <div 
+            class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-base shadow-sm flex-shrink-0"
+            style={`background: ${item.avatarBg};`}
+          >
+            {item.initials}
+          </div>
+          <div class="min-w-0">
+            <h3 class="text-base md:text-lg font-bold text-ink leading-tight m-0 truncate">
+              {item.name}
+            </h3>
+            <p class="text-xs md:text-sm text-muted-site m-0 leading-snug mt-0.5">
+              {item.role}
+            </p>
+            <p class="text-xs md:text-sm font-semibold text-green m-0 leading-snug mt-0.5 flex items-center gap-1">
+              <Building2 size={13} class="inline" />
+              <span>{item.company}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Callout Bottom Banner -->
+  <div class="bg-white border border-line rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mt-8">
+    <div class="max-w-2xl">
+      <h3 class="text-lg md:text-xl font-bold text-ink m-0">
+        Punya Pengalaman atau Ingin Berkolaborasi?
+      </h3>
+      <p class="text-sm md:text-base text-muted-site m-0 mt-1">
+        Indonesia Terang terbuka untuk praktisi, komunitas, maupun industri yang ingin mendiskusikan implementasi dan inovasi energi bersih.
+      </p>
+    </div>
+    <Button asChild className="bg-green hover:bg-green-dark text-white rounded-xl px-6 py-5 font-semibold flex-shrink-0 shadow-sm">
+      <a href="/kontak/" class="inline-flex items-center gap-2">
+        <span>Mulai Diskusi Bersama Kami</span>
+        <ArrowRight size={16} />
+      </a>
+    </Button>
+  </div>
+</section>

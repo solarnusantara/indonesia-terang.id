@@ -1,11 +1,96 @@
 ---
-import CategoryPage from "../components/CategoryPage.astro";
+import { ArrowUpRight, Network, Sparkles, SunMedium, Users } from "@lucide/astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PostCard from "../components/PostCard.astro";
+import TestimonialsSection from "../components/TestimonialsSection.astro";
 import { postsByCategory } from "../utils.js";
+
+const posts = postsByCategory("komunitas");
+
+const pillars = [
+  {
+    title: "Pintar PV",
+    eyebrow: "Energi Surya",
+    description: "Komunitas energi surya untuk berbagi wawasan teknis, instalasi PLTS, pemilihan material, dan pemecahan kendala pembangkit.",
+    href: "/pintar-pv-membangun-komunitas-energi-surya-untuk-indonesia-yang-lebih-cerah/",
+    Icon: SunMedium,
+  },
+  {
+    title: "Pintar EV",
+    eyebrow: "Kendaraan Listrik",
+    description: "Ruang belajar dan kolaborasi ekosistem kendaraan listrik, teknologi baterai, dan transportasi berkelanjutan ramah lingkungan.",
+    href: "/pintar-ev-menebar-energi-positif-dalam-komunitas-kendaraan-listrik-pasca-pelatihan/",
+    Icon: Sparkles,
+  },
+  {
+    title: "Pintar ME",
+    eyebrow: "Manajemen Energi",
+    description: "Komunitas praktisi dan pengelola fasilitas untuk efisiensi daya, audit energi sistematis, dan keberlanjutan operasional.",
+    href: "/pintar-me-komunitas-penerang-masa-depan-energi-berkelanjutan/",
+    Icon: Network,
+  },
+];
 ---
 
-<CategoryPage
-  title="Komunitas Pintar"
-  eyebrow="Komunitas"
-  description="Pintar PV, Pintar EV, dan Pintar ME menjaga pembelajaran energi tetap hidup melalui jejaring, diskusi, dan praktik bersama."
-  posts={postsByCategory("komunitas")}
-/>
+<BaseLayout 
+  title="Komunitas Pintar | Indonesia Terang" 
+  description="Ruang kolaborasi praktisi, komunitas, dan penggerak energi terbarukan melalui Pintar PV, Pintar EV, dan Pintar ME."
+>
+  <!-- Page Hero -->
+  <section class="page-hero page-hero--compact">
+    <div>
+      <p class="eyebrow flex items-center gap-2">
+        <Users size={16} />
+        <span>Komunitas Indonesia Terang</span>
+      </p>
+      <h1>Wadah Kolaborasi & Penggerak Energi Bersih.</h1>
+      <p>
+        Pintar PV, Pintar EV, dan Pintar ME menghubungkan praktisi, akademisi, dan antusias energi bersih untuk saling berbagi wawasan teknis, problem solving, hingga penerapan nyata dari skala rumahan sampai industri.
+      </p>
+    </div>
+  </section>
+
+  <!-- 3 Pilar Komunitas -->
+  <section class="content-band">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">3 Pilar Komunitas</p>
+        <h2>Fokus Kolaborasi & Pembelajaran</h2>
+      </div>
+      <p>
+        Setiap pilar mewadahi fokus teknologi spesifik agar diskusi dan solusi teknis yang dihasilkan tepat sasaran.
+      </p>
+    </div>
+
+    <div class="service-grid">
+      {pillars.map((item) => (
+        <a class="service-card group hover:border-green/50 transition-colors" href={item.href}>
+          <item.Icon size={38} class="text-green group-hover:scale-110 transition-transform" />
+          <div>
+            <p class="text-xs font-bold text-muted-site uppercase tracking-wider mb-1">{item.eyebrow}</p>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            <span class="text-link">Buka panduan & diskusi <ArrowUpRight size={16} /></span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Section Tentang Mereka (Testimoni & Suara Praktisi) -->
+  <TestimonialsSection />
+
+  <!-- Artikel & Arsip Komunitas -->
+  <section class="content-band">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Dokumentasi & Wawasan</p>
+        <h2>Artikel & Kegiatan Komunitas</h2>
+      </div>
+      <p>Catatan inisiatif, panduan praktis, dan perkembangan kegiatan komunitas pasca pelatihan.</p>
+    </div>
+    <div class="post-grid">
+      {posts.map((post) => <PostCard post={post} />)}
+    </div>
+  </section>
+</BaseLayout>
