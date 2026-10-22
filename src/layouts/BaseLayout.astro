@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import { ChevronDown, Menu, Search, Zap } from "@lucide/astro";
+import { ChevronDown, Menu, Search, X, Zap } from "@lucide/astro";
 import { Button } from "@/components/ui/button";
 
 const {
@@ -49,12 +49,9 @@ const imageUrl = new URL(image, "https://indonesia-terang.id").toString();
   <body>
     <header class="site-header">
       <a class="brand" href="/" aria-label="Indonesia Terang">
-        <img src="/uploads/2024/02/cropped-Logo-Indonesia-Terang-180x180.png" alt="" width="56" height="56" />
+        <img src="/uploads/2024/02/cropped-Logo-Indonesia-Terang-180x180.png" alt="" width="48" height="48" />
         <span>Indonesia Terang</span>
       </a>
-      <button class="nav-toggle" type="button" aria-label="Buka menu" data-menu-toggle>
-        <Menu size={22} />
-      </button>
       <nav class="site-nav" data-menu>
         <a href="/">Beranda</a>
         <a href="/tentang/">Tentang Pintar</a>
@@ -104,13 +101,30 @@ const imageUrl = new URL(image, "https://indonesia-terang.id").toString();
         </div>
         <a href="/berita/">Berita</a>
         <a href="/kontak/">Kontak</a>
+
+        <!-- Mobile Drawer CTA -->
+        <div class="nav-mobile-cta">
+          <Button asChild className="w-full bg-green hover:bg-green-dark text-white rounded-xl py-5 font-semibold">
+            <a href="/kontak/">
+              <Zap size={16} />
+              <span>Mulai Konsultasi</span>
+            </a>
+          </Button>
+        </div>
       </nav>
-      <Button asChild className="header-action">
-        <a href="/kontak/" aria-label="Mulai konsultasi">
-          <Zap size={18} />
-          <span>Konsultasi</span>
-        </a>
-      </Button>
+
+      <div class="header-right">
+        <Button asChild className="header-action">
+          <a href="/kontak/" aria-label="Mulai konsultasi">
+            <Zap size={15} />
+            <span>Konsultasi</span>
+          </a>
+        </Button>
+        <button class="nav-toggle" type="button" aria-label="Buka menu" data-menu-toggle>
+          <Menu size={20} class="menu-icon-open" />
+          <X size={20} class="menu-icon-close" />
+        </button>
+      </div>
     </header>
     <main>
       <slot />
@@ -142,7 +156,29 @@ const imageUrl = new URL(image, "https://indonesia-terang.id").toString();
     <script>
       const toggle = document.querySelector("[data-menu-toggle]");
       const menu = document.querySelector("[data-menu]");
-      toggle?.addEventListener("click", () => menu?.classList.toggle("is-open"));
+      
+      toggle?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        menu?.classList.toggle("is-open");
+        toggle?.classList.toggle("is-active");
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (e) => {
+        const target = e.target;
+        if (toggle && menu && !toggle.contains(target) && !menu.contains(target)) {
+          menu.classList.remove("is-open");
+          toggle.classList.remove("is-active");
+        }
+      });
+
+      // Close menu when clicking on mobile links
+      menu?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menu.classList.remove("is-open");
+          toggle?.classList.remove("is-active");
+        });
+      });
     </script>
   </body>
 </html>
