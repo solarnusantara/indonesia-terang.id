@@ -1,5 +1,5 @@
 ---
-import { MessageSquareQuote, Quote, ArrowRight, Building2, CheckCircle2 } from "@lucide/astro";
+import { MessageSquareQuote, Quote, ArrowRight, Building2, CheckCircle2, MessageCircle } from "@lucide/astro";
 import { Button } from "@/components/ui/button";
 import { testimonials } from "../utils.js";
 
@@ -12,7 +12,7 @@ const { showHeading = true, className = "" } = Astro.props;
       <div>
         <p class="eyebrow flex items-center gap-2">
           <MessageSquareQuote size={16} />
-          <span>Tentang Mereka</span>
+          <span>Apa Kata Mereka</span>
         </p>
         <h2>Suara Praktisi & Penggerak Energi.</h2>
       </div>
@@ -78,21 +78,41 @@ const { showHeading = true, className = "" } = Astro.props;
     ))}
   </div>
 
-  <!-- Callout Bottom Banner -->
-  <div class="bg-white border border-line rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mt-8">
+  <!-- Callout Bottom Banner with WA Group Link -->
+  <div class="bg-white border border-line rounded-2xl p-6 md:p-8 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mt-8">
     <div class="max-w-2xl">
+      <div class="flex items-center gap-2 mb-1.5">
+        <span class="inline-flex items-center gap-1 text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200/60 px-2.5 py-0.5 rounded-full">
+          Komunitas Terbuka
+        </span>
+        <span class="text-xs text-muted-site">• Free to share</span>
+      </div>
       <h3 class="text-lg md:text-xl font-bold text-ink m-0">
-        Punya Pengalaman atau Ingin Berkolaborasi?
+        Ingin Bergabung dalam Diskusi & Kolaborasi?
       </h3>
       <p class="text-sm md:text-base text-muted-site m-0 mt-1">
-        Indonesia Terang terbuka untuk praktisi, komunitas, maupun industri yang ingin mendiskusikan implementasi dan inovasi energi bersih.
+        Masuk ke grup WhatsApp Komunitas Indonesia Terang untuk saling bertukar wawasan teknis, berkonsultasi, dan membagikan inisiatif energi bersih.
       </p>
     </div>
-    <Button asChild className="bg-green hover:bg-green-dark text-white rounded-xl px-6 py-5 font-semibold flex-shrink-0 shadow-sm">
-      <a href="/kontak/" class="inline-flex items-center gap-2">
-        <span>Mulai Diskusi Bersama Kami</span>
+
+    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full lg:w-auto flex-shrink-0">
+      <a 
+        href="https://chat.whatsapp.com/IAGjrkApQpZ7I5po1ZA75C?s=sw&p=a&mlu=4&ilr=4" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm transition-all shadow-sm active:scale-95 text-center"
+      >
+        <MessageCircle size={18} />
+        <span>Gabung Grup WhatsApp</span>
+      </a>
+
+      <a 
+        href="/kontak/" 
+        class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-line bg-white hover:bg-soft text-ink font-semibold text-sm transition-all shadow-sm active:scale-95 text-center"
+      >
+        <span>Mulai Diskusi</span>
         <ArrowRight size={16} />
       </a>
-    </Button>
+    </div>
   </div>
 </section>

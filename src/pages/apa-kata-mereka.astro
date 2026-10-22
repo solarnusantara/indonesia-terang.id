@@ -1,0 +1,61 @@
+---
+import { ArrowLeft, MessageCircle, MessageSquareQuote, Users } from "@lucide/astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TestimonialsSection from "../components/TestimonialsSection.astro";
+---
+
+<BaseLayout 
+  title="Apa Kata Mereka | Indonesia Terang" 
+  description="Pengalaman dan harapan nyata para praktisi dan inisiator energi bersih: Ahmad Fahmi Rofiqi (PT Pertamina Power Indonesia) & Mochammad Farros Fatchur Roji (Solar Nusantara)."
+>
+  <!-- Page Hero -->
+  <section class="page-hero page-hero--compact">
+    <div>
+      <p class="eyebrow flex items-center gap-2">
+        <MessageSquareQuote size={16} />
+        <span>Apa Kata Mereka</span>
+      </p>
+      <h1>Suara Praktisi & Penggerak Energi Bersih.</h1>
+      <p>
+        Bagaimana platform Indonesia Terang membantu dalam kolaborasi wawasan teknis, pemecahan masalah (problem solving), kemudahan sourcing material, hingga mendorong adopsi energi bersih dari skala rumahan sampai industri.
+      </p>
+
+      <!-- WA Group Invite Callout -->
+      <div class="mt-8 p-6 bg-gradient-to-r from-emerald-50 via-soft to-white border border-emerald-200/80 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
+        <div class="max-w-xl">
+          <div class="flex items-center gap-2 mb-1.5">
+            <span class="inline-flex items-center gap-1 text-xs font-bold text-emerald-800 bg-white border border-emerald-200 px-3 py-0.5 rounded-full">
+              Komunitas Terbuka
+            </span>
+            <span class="text-xs text-muted-site font-medium">• Free to share</span>
+          </div>
+          <h2 class="text-xl font-bold text-ink m-0">Bergabung di Grup WhatsApp Komunitas</h2>
+          <p class="text-sm text-muted-site m-0 mt-1 leading-relaxed">
+            Wadah diskusi interaktif seputar teknologi PLTS, kendaraan listrik, manajemen energi, dan kolaborasi proyek di lapangan.
+          </p>
+        </div>
+
+        <a 
+          href="https://chat.whatsapp.com/IAGjrkApQpZ7I5po1ZA75C?s=sw&p=a&mlu=4&ilr=4" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm transition-all shadow-sm hover:shadow active:scale-95 flex-shrink-0"
+        >
+          <MessageCircle size={18} />
+          <span>Gabung Grup WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Testimoni (Ahmad Fahmi Rofiqi & Mochammad Farros Fatchur Roji) -->
+  <TestimonialsSection showHeading={false} />
+
+  <!-- Navigation Footer -->
+  <div class="content-band pt-0">
+    <a href="/komunitas/" class="inline-flex items-center gap-2 text-sm font-semibold text-green hover:underline">
+      <ArrowLeft size={16} />
+      <span>Kembali ke Halaman Komunitas</span>
+    </a>
+  </div>
+</BaseLayout>

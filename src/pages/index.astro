@@ -1,8 +1,7 @@
 ---
-import { ArrowUpRight, BookOpen, GraduationCap, HandHeart, Lightbulb, Microscope, Network, ShieldCheck, SunMedium, Zap } from "@lucide/astro";
+import { ArrowRight, ArrowUpRight, BookOpen, GraduationCap, HandHeart, Lightbulb, MessageCircle, MessageSquareQuote, Microscope, Network, ShieldCheck, SunMedium, Zap } from "@lucide/astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PostCard from "../components/PostCard.astro";
-import TestimonialsSection from "../components/TestimonialsSection.astro";
 import { featuredPosts, focusStats, serviceGroups } from "../utils.js";
 ---
 
@@ -109,11 +108,50 @@ import { featuredPosts, focusStats, serviceGroups } from "../utils.js";
       <div class="impact-item"><Network size={34} /><h3>Pintar ME</h3><p>Komunitas manajemen energi untuk efisiensi dan keberlanjutan.</p></div>
       <div class="impact-item"><BookOpen size={34} /><h3>Energy Hack</h3><p>Kelas ringkas yang fokus pada skill praktis dan studi kasus.</p></div>
     </div>
+
+    <!-- Banner Teaser Apa Kata Mereka & WA Group Link -->
+    <div class="mt-8 bg-gradient-to-r from-soft via-white to-soft border border-line rounded-2xl p-6 md:p-8 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 shadow-sm">
+      <div class="max-w-2xl">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="inline-flex items-center gap-1.5 text-xs font-bold text-green bg-emerald-50 border border-emerald-200/60 px-3 py-1 rounded-full">
+            <MessageSquareQuote size={14} />
+            <span>Suara Praktisi & Komunitas</span>
+          </span>
+          <span class="text-xs text-muted-site font-medium">• Free to share</span>
+        </div>
+        <h3 class="text-xl md:text-2xl font-bold text-ink m-0">
+          Lihat Apa Kata Mereka Tentang Indonesia Terang
+        </h3>
+        <p class="text-sm md:text-base text-muted-site m-0 mt-2 leading-relaxed">
+          Temukan pengalaman langsung para praktisi industri dan inisiator dalam kolaborasi teknis, problem solving, sourcing material, serta akselerasi adopsi energi terbarukan.
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full lg:w-auto flex-shrink-0">
+        <!-- WA Group Invite Link -->
+        <a 
+          href="https://chat.whatsapp.com/IAGjrkApQpZ7I5po1ZA75C?s=sw&p=a&mlu=4&ilr=4" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm transition-all shadow-sm hover:shadow active:scale-95 text-center"
+        >
+          <MessageCircle size={18} />
+          <span>Gabung Grup WhatsApp</span>
+        </a>
+
+        <!-- Redirect to Apa Kata Mereka page -->
+        <a 
+          href="/apa-kata-mereka/" 
+          class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl border border-line bg-white hover:bg-soft text-ink font-semibold text-sm transition-all shadow-sm hover:border-green/50 active:scale-95 text-center"
+        >
+          <span>Lihat Apa Kata Mereka</span>
+          <ArrowRight size={16} class="text-green" />
+        </a>
+      </div>
+    </div>
   </section>
 
-  <TestimonialsSection />
-
-  <section class="content-band">
+  <section class="content-band content-band--soft">
     <div class="section-heading">
       <div>
         <p class="eyebrow">Artikel terbaru</p>
