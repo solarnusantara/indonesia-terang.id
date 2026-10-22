@@ -5,3 +5,5 @@ astro-dev*.log
 screenshots/
 .env
 .env.*
+__pycache__/
+*.pyc
