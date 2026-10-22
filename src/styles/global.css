@@ -249,21 +249,22 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  height: 40px;
+  height: 38px;
   padding: 0 16px;
   border-radius: 8px;
   background: var(--green);
-  color: #fff;
+  color: #fff !important;
   font-size: 0.88rem;
   font-weight: 700;
   white-space: nowrap;
   flex-shrink: 0;
+  text-decoration: none;
   transition: all 0.2s ease;
 }
 
 .header-action:hover {
   background: var(--green-dark);
+  color: #fff !important;
 }
 
 .nav-toggle {
@@ -806,15 +807,14 @@ textarea {
   }
 
   .header-action {
-    height: 36px;
-    padding: 0 10px;
-    font-size: 0.8rem;
-    gap: 4px;
+    height: 34px;
+    padding: 0 12px;
+    font-size: 0.82rem;
   }
 
   .nav-toggle {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
   }
 
   h1 {
@@ -860,13 +860,8 @@ textarea {
 }
 
 @media (max-width: 360px) {
-  .header-action span {
-    display: none;
-  }
-
   .header-action {
-    width: 36px;
-    padding: 0;
-    justify-content: center;
+    padding: 0 8px;
+    font-size: 0.76rem;
   }
 }

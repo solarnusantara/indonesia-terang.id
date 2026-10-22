@@ -1,7 +1,6 @@
 ---
 import "../styles/global.css";
-import { ChevronDown, Menu, Search, X, Zap } from "@lucide/astro";
-import { Button } from "@/components/ui/button";
+import { ChevronDown, Menu, Search, X } from "@lucide/astro";
 
 const {
   title = "Indonesia Terang",
@@ -104,22 +103,16 @@ const imageUrl = new URL(image, "https://indonesia-terang.id").toString();
 
         <!-- Mobile Drawer CTA -->
         <div class="nav-mobile-cta">
-          <Button asChild className="w-full bg-green hover:bg-green-dark text-white rounded-xl py-5 font-semibold">
-            <a href="/kontak/">
-              <Zap size={16} />
-              <span>Mulai Konsultasi</span>
-            </a>
-          </Button>
+          <a href="/kontak/" class="button w-full justify-center">
+            Mulai Konsultasi
+          </a>
         </div>
       </nav>
 
       <div class="header-right">
-        <Button asChild className="header-action">
-          <a href="/kontak/" aria-label="Mulai konsultasi">
-            <Zap size={15} />
-            <span>Konsultasi</span>
-          </a>
-        </Button>
+        <a href="/kontak/" class="header-action" aria-label="Mulai konsultasi">
+          Konsultasi
+        </a>
         <button class="nav-toggle" type="button" aria-label="Buka menu" data-menu-toggle>
           <Menu size={20} class="menu-icon-open" />
           <X size={20} class="menu-icon-close" />
